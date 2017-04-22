@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header page-scroll">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#page-top">Involves Front End</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <form class="nav navbar-nav navbar-right" name="form" (ngSubmit)="searchUser()">
+                    <input type="text" [(ngModel)]="usernameInput" name="usernameInput" placeholder="GitHub Username">
+                    <input type="submit" name="search" value="Search">
+               </form>
+          </div>
+          <!-- /.navbar-collapse -->
+     </div>
+     <!-- /.container-fluid -->
+</nav>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<section>
+     <div class="container" [hidden]="!user.name">
+          <div class="row">
+               <div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                    <div class="col-md-4">
+                         <a href="{{user.avatar_url}}" target="_blank">
+                              <img src="{{user.avatar_url}}" alt="" class="img-responsive">
+                         </a>
+                         <h4>{{user.name}}</h4>
+                         <h5>{{user.login}}</h5>
+                         <hr>
+                         <p><i class="fa fa-building"></i> {{user.company}}</p>
+                         <p><i class="fa fa-map-marker"></i> {{user.location}}</p>
+                         <p><i class="fa fa-link"></i> {{user.blog}}</p>
+
+                    </div>
+                    <div class="col-md-8">
+                         <h2>Repositories</h2>
+                         <hr>
+
+                         <div class="list-group">
+                              <div class="list-group-item" *ngFor="let repo of userRepos">
+                                   <h4 class="list-group-item-heading">{{repo.name}}</h4>
+                                   <p class="list-group-item-text">{{repo.description}}</p>
+                                   <hr>
+                              </div>
+                         </div>
+
+
+                    </div>
+
+               </div>
+          </div>
+     </div>
+</section>
