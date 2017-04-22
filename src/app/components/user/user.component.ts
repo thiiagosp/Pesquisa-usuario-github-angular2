@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './../../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
      selector: 'app-user',
@@ -10,8 +11,9 @@ export class UserComponent implements OnInit {
      usernameInput:any;
      user:any = {};
      userRepos: any = [];
+     notFound = false;
 
-     constructor(private usersService : UsersService) { }
+     constructor(private usersService : UsersService, private router: Router) { }
 
 
      ngOnInit() {
@@ -24,6 +26,7 @@ export class UserComponent implements OnInit {
                if(data === 404) {
                     console.log('User not found');
                     this.user = {}
+                    this.router.navigate(['404']);
                }else {
                     this.user = data;
                     this.getRepositories(this.usernameInput);

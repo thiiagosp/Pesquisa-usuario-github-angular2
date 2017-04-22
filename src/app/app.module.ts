@@ -10,13 +10,15 @@ import { MainComponent } from './components/main/main.component';
 
 import { UsersService } from './services/users.service';
 import { UserComponent } from './components/user/user.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     // HeaderComponent,
     MainComponent,
-    UserComponent
+    UserComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

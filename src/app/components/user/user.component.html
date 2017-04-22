@@ -23,8 +23,8 @@
 </nav>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-<section>
-     <div class="container" [hidden]="!user.name">
+<section [hidden]="!user.name">
+     <div class="container">
           <div class="row">
                <div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
                     <div class="col-md-4">
@@ -34,9 +34,9 @@
                          <h4>{{user.name}}</h4>
                          <h5>{{user.login}}</h5>
                          <hr>
-                         <p><i class="fa fa-building"></i> {{user.company}}</p>
-                         <p><i class="fa fa-map-marker"></i> {{user.location}}</p>
-                         <p><i class="fa fa-link"></i> {{user.blog}}</p>
+                         <p [hidden]="!user.company"><i class="fa fa-building"></i> {{user.company}}</p>
+                         <p [hidden]="!user.location"><i class="fa fa-map-marker"></i> {{user.location}}</p>
+                         <p [hidden]="!user.blog"><i class="fa fa-link"></i> {{user.blog}}</p>
 
                     </div>
                     <div class="col-md-8">
@@ -47,7 +47,6 @@
                               <div class="list-group-item" *ngFor="let repo of userRepos">
                                    <h4 class="list-group-item-heading">{{repo.name}}</h4>
                                    <p class="list-group-item-text">{{repo.description}}</p>
-                                   <hr>
                               </div>
                          </div>
 
@@ -57,4 +56,8 @@
                </div>
           </div>
      </div>
+</section>
+
+<section [hidden]="!notFound">
+     <h3>Page not found );</h3>
 </section>

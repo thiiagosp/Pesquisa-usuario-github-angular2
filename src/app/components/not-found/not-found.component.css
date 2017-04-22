@@ -1,0 +1,11 @@
+.not-found {
+     background: url('./../../../assets/images/404-background.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+     margin: 0;
+     padding: 0;
+}
+
+.icons-404 {
+     padding: 100px 0;
+}
