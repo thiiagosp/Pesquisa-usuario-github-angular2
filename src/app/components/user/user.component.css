@@ -6,6 +6,11 @@ section {
      padding: 100px 0;
 }
 
+
+
+
+
+
 .navbar {
      background: #24292e;
 }
@@ -34,6 +39,25 @@ section {
 }
 
 
+.usernameInput {
+     font-family: 'Montserrat', sans-serif;
+     padding: 5px 8px;
+     width: 220px;
+     margin: 0 20px;
+     border-radius: 5px;
+     color: #c8c9ca;
+     border: 2px solid #24292e;
+     background: #4a4e52;
+}
+
+
+
+
+
+
+
+
+
 .input-comment {
      width: 70%;
      padding: 10px;
@@ -54,17 +78,6 @@ section {
      color: #6C737A;
 }
 
-.usernameInput {
-     font-family: 'Montserrat', sans-serif;
-     padding: 5px 8px;
-     width: 220px;
-     margin: 0 20px;
-     border-radius: 5px;
-     color: #c8c9ca;
-     border: 2px solid #24292e;
-     background: #4a4e52;
-}
-
 .btn-remove {
      border: none;
      background: transparent;
@@ -72,12 +85,11 @@ section {
      float: right;
 }
 
-
-
-
-
+.pagination {
+     margin: 20px auto;
+     display: table;
+}
 
 .list-group-item {
      margin-bottom: 5px;
-     /*font-family: 'Open Sans Condensed', sans-serif;*/
 }

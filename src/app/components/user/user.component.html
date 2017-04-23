@@ -45,30 +45,29 @@
                          <h2>Repositories</h2>
 
                          <div class="list-group">
-                              <div class="list-group-item" *ngFor="let repo of pagedItems">
+                              <a class="list-group-item" *ngFor="let repo of pagedItems" href="{{repo.html_url}}" target="_blank">
                                    <h4 class="list-group-item-heading">{{repo.name}}</h4>
                                    <p class="list-group-item-text">{{repo.description}}</p>
-                              </div>
-
-                              <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                                   <li [ngClass]="{disabled:pager.currentPage === 1}">
-                                        <a (click)="setPage(1)">First</a>
-                                   </li>
-                                   <li [ngClass]="{disabled:pager.currentPage === 1}">
-                                        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-                                   </li>
-                                   <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                                        <a (click)="setPage(page)">{{page}}</a>
-                                   </li>
-                                   <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                                        <a (click)="setPage(pager.currentPage + 1)">Next</a>
-                                   </li>
-                                   <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                                        <a (click)="setPage(pager.totalPages)">Last</a>
-                                   </li>
-                              </ul>
-
+                              </a>
                          </div>
+
+                         <ul *ngIf="pager.pages && pager.pages.length > 1" class="pagination">
+                              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                   <a (click)="setPage(1)">First</a>
+                              </li>
+                              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                   <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                              </li>
+                              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                   <a (click)="setPage(page)">{{page}}</a>
+                              </li>
+                              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                   <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                              </li>
+                              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                   <a (click)="setPage(pager.totalPages)">Last</a>
+                              </li>
+                         </ul>
 
                          <hr>
                          <h2>Comments</h2>

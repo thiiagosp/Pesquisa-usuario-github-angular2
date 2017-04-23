@@ -52,6 +52,7 @@ export class UserComponent implements OnInit {
                }else {
                     this.userRepos = data;
                     this.setPage(1);
+                    console.log(this.pager.pages);
                }
           })
      }
