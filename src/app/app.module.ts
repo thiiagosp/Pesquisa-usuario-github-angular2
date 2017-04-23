@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 // import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 
-import { UsersService } from './services/users.service';
 import { UserComponent } from './components/user/user.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+
+import { UsersService } from './services/users.service';
+import { PagerService } from './services/pager.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpModule,
     routes
   ],
-  providers: [UsersService],
+  providers: [UsersService, PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

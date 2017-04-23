@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './../../services/users.service';
+import { PagerService } from './../../services/pager.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,15 +9,20 @@ import { Router } from '@angular/router';
      styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-     usernameInput:any;
-     user:any = {};
+     usernameInput: any;
+     commentInput: any;
+     user: any = {};
      userRepos: any = [];
-     notFound = false;
+     comments: any = [];
 
-     constructor(private usersService : UsersService, private router: Router) { }
+     pager: any = {};
+     pagedItems: any[];
+
+     constructor(private usersService : UsersService, private router: Router, private pagerService: PagerService) { }
 
 
      ngOnInit() {
+
      }
 
      searchUser() {
@@ -31,6 +37,7 @@ export class UserComponent implements OnInit {
                     this.user = data;
                     this.getRepositories(this.usernameInput);
                     console.log(this.user);
+                    this.getComments();
                }
                this.usernameInput = '';
           })
@@ -44,8 +51,57 @@ export class UserComponent implements OnInit {
                     this.userRepos = {}
                }else {
                     this.userRepos = data;
+                    this.setPage(1);
                }
           })
      }
+
+     getComments() {
+          this.comments = JSON.parse(localStorage.getItem(this.user.login)) || [];
+          console.log(this.comments);
+     }
+
+     addComment() {
+          console.log(this.commentInput);
+          console.log(this.comments);
+          if(this.commentInput) {
+
+               this.comments.push(this.commentInput);
+               console.log(this.comments);
+               localStorage.setItem(this.user.login, JSON.stringify(this.comments));
+               this.commentInput = '';
+          }
+     }
+
+     removeComment(comment) {
+          console.log(this.comments);
+          // let userComments = this.comments;
+          let idx = this.comments.indexOf(comment);
+          console.log(idx)
+          this.comments.splice(idx, 1);
+          console.log(this.comments);
+          localStorage.setItem(this.user.login, JSON.stringify(this.comments));
+
+     }
+
+
+
+
+
+     setPage(page: number) {
+          if (page < 1 || page > this.pager.totalPages) {
+               return;
+          }
+
+          // get pager object from service
+          this.pager = this.pagerService.getPager(this.userRepos.length, page);
+
+          // get current page of items
+          this.pagedItems = this.userRepos.slice(this.pager.startIndex, this.pager.endIndex + 1);
+     }
+
+
+
+
 
 }
