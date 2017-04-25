@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top">
      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -10,16 +9,13 @@
                </button>
                <a class="navbar-brand" href="#">Involves Front End</a>
           </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <form class="nav navbar-nav navbar-right form" name="form" (ngSubmit)="searchUser()">
                     <input type="text" autofocus class="usernameInput" [(ngModel)]="usernameInput" name="usernameInput" placeholder="GitHub Username">
                     <input type="submit" class="btn-search" name="search" value="Search">
                </form>
           </div>
-          <!-- /.navbar-collapse -->
      </div>
-     <!-- /.container-fluid -->
 </nav>
 
 <section [hidden]="!user.name">
@@ -72,7 +68,7 @@
                          <hr>
                          <h2>Comments</h2>
 
-                         <div class="" [hidden]="!comments">
+                         <div [hidden]="!comments">
                               <div class="list-group">
                                    <div class="list-group-item" *ngFor="let comment of comments">
                                         <div class="row">
@@ -86,11 +82,11 @@
                                    </div>
                               </div>
                          </div>
-                         <div class="">
-                              <!-- <form name="commentForm" (ngSubmit)="addComment()"> -->
-                              <input type="text" class="input-comment" [(ngModel)]='commentInput' name="input-comment" placeholder="Add comment...">
-                              <input type="submit" (click)="addComment()" class="btn-comment" name="search" value="Add Comment">
-                              <!-- </form> -->
+                         <div>
+                              <form name="commentForm" (ngSubmit)="addComment()">
+                                   <input type="text" class="input-comment" [(ngModel)]='commentInput' name="input-comment" placeholder="Add comment...">
+                                   <input type="submit" class="btn-comment" name="search" value="Add Comment">
+                              </form>
                          </div>
                     </div>
                </div>

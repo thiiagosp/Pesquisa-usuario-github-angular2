@@ -1,3 +1,30 @@
+# Seleção Desenvolvedor com especialidade em FrontEnd
+
+Esse é o teste de seleção para FrontEnd da Involves Tecnologia e Inovação
+
+## Como Executar a aplicação
+
+Para executar o projeto, você deve usar `npm install` no terminal, e em seguida um `npm start`. No seu broswer, entre no `http://localhost:4200`.
+
+
+## Como Executar os Testes.
+
+teste.....
+
+
+## Checklist Implementado
+
+(v) - Pesquisa de um usuário por username e ver o resultado na mesma página.
+(v) - Observação por usuário pesquisado. (Utilizado o localStorage).
+(v) - Paginação ods repositórios do usuário pesquisado (5 repositórios por página).
+(v) - Exibição de uma página 404 caso o usuário não exista.
+
+
+
+
+
+
+
 # InvolvesProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.

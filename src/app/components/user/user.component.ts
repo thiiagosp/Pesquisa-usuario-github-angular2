@@ -12,6 +12,7 @@ export class UserComponent implements OnInit {
      usernameInput: any;
      commentInput: any;
      user: any = {};
+     show = false;
      userRepos: any = [];
      comments: any = [];
 
@@ -25,7 +26,8 @@ export class UserComponent implements OnInit {
 
      }
 
-     searchUser() {
+     searchUserByUsername(username) {
+          this.usernameInput = username;
           console.log(this.usernameInput);
           this.usersService.getUser(this.usernameInput)
           .then((data) => {
@@ -33,14 +35,39 @@ export class UserComponent implements OnInit {
                     console.log('User not found');
                     this.user = {}
                     this.router.navigate(['404']);
+                    this.show = false;
+                    console.log(this.show);
                }else {
                     this.user = data;
                     this.getRepositories(this.usernameInput);
                     console.log(this.user);
+                    this.show = true;
+                    this.getComments();
+                    console.log(this.show);
+               }
+               this.usernameInput = '';
+          })
+     }
+
+     searchUser() {
+          console.log(this.usernameInput);
+          this.usersService.getUser(this.usernameInput)
+          .then((data) => {
+               if(data === 404) {
+                    console.log('User not found');
+                    this.user = {}
+                    this.show = false;
+                    this.router.navigate(['404']);
+               }else {
+                    this.user = data;
+                    this.getRepositories(this.usernameInput);
+                    console.log(this.user);
+                    this.show = true;
                     this.getComments();
                }
                this.usernameInput = '';
           })
+          console.log(this.show)
      }
 
      getRepositories(username) {

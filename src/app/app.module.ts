@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { routes } from "./app.router";
 
 import { AppComponent } from './app.component';
-// import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 
 import { UserComponent } from './components/user/user.component';
@@ -17,7 +16,6 @@ import { PagerService } from './services/pager.service';
 @NgModule({
   declarations: [
     AppComponent,
-    // HeaderComponent,
     MainComponent,
     UserComponent,
     NotFoundComponent
@@ -28,7 +26,7 @@ import { PagerService } from './services/pager.service';
     HttpModule,
     routes
   ],
-  providers: [UsersService, PagerService],
+  providers: [UsersService, PagerService, UserComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
